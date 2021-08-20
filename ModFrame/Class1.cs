@@ -25,8 +25,6 @@ namespace BetterMaps
             Harmony harmony = new(ModGUID);
             harmony.PatchAll(assembly);
             LoadAssets();
-            On.Minimap.UpdatePlayerMarker += Minimap_UpdatePlayerMarker;
-            On.Minimap.CenterMap += Minimap_CenterMap;
         }
         public void LoadAssets()
         {
@@ -61,7 +59,6 @@ namespace BetterMaps
                 __instance.m_mapImageSmall = BetterMapper.internalsmallmap; 
                 __instance.m_smallShipMarker = BetterMapper.internalsmallship;
                 __instance.m_pinRootSmall = BetterMapper.internalpinroot;
-               // __instance.m_windMarker = BetterMapper.internalWindDir;
             }
 
         }
@@ -74,39 +71,42 @@ namespace BetterMaps
                 __instance.m_windMarker = BetterMapper.internalWindDir;
             }
         }
-        private void Minimap_UpdatePlayerMarker(On.Minimap.orig_UpdatePlayerMarker orig, Minimap self, Player player, Quaternion playerRot)
+
+        [HarmonyPatch(typeof(Minimap), nameof(Minimap.UpdatePlayerMarker))]
+        public static class RotationPatch
         {
-            if (self.m_mode == Minimap.MapMode.Small)
+            public static void Postfix(Minimap __instance, Player player, Quaternion playerRot)
             {
-                self.m_smallMarker.rotation = Quaternion.Euler(0, 0, 0);
-                Ship controlledShip = player.GetControlledShip();
-                if ((bool)controlledShip)
+                if (__instance.m_mode == Minimap.MapMode.Small)
                 {
-                    self.m_smallShipMarker.gameObject.SetActive(value: true);
-                    float yawShip = controlledShip.GetShipYawAngle();
-                    self.m_smallShipMarker.transform.rotation = Quaternion.Euler(0, 0, yawShip);
+                    __instance.m_smallMarker.rotation = Quaternion.Euler(0, 0, 0);
+                    Ship controlledShip = player.GetControlledShip();
+                    if ((bool)controlledShip)
+                    {
+                        __instance.m_smallShipMarker.gameObject.SetActive(true);
+                        float yawShip = controlledShip.GetShipYawAngle();
+                        __instance.m_smallShipMarker.transform.rotation = Quaternion.Euler(0,0, yawShip);
+                    }
+                    else
+                    {
+                        __instance.m_smallShipMarker.gameObject.SetActive(false);
+                    }
                 }
-                else
-                {
-                    self.m_smallShipMarker.gameObject.SetActive(value: false);
-                }
-            } else
-            {
-                orig(self, player, playerRot);
             }
         }
-        
-        
-        private void Minimap_CenterMap(On.Minimap.orig_CenterMap orig, Minimap self, Vector3 centerPoint)
+
+        [HarmonyPatch(typeof(Minimap), nameof(Minimap.CenterMap))]
+        public static class CenterMapPatch
         {
-            self.m_mapImageSmall.transform.rotation = Quaternion.Euler(0, 0, Player.m_localPlayer.m_eye.transform.rotation.eulerAngles.y);
-            self.m_pinRootSmall.transform.rotation = Quaternion.Euler(0, 0, Player.m_localPlayer.m_eye.transform.rotation.eulerAngles.y);
-            for (int i = 0; i < self.m_pinRootSmall.childCount; i++)
+            public static void Postfix(Minimap __instance)
             {
-                self.m_pinRootSmall.transform.GetChild(i).transform.rotation = Quaternion.identity;
+                __instance.m_mapImageSmall.transform.rotation = Quaternion.Euler(0, 0, Player.m_localPlayer.m_eye.transform.rotation.eulerAngles.y);
+                __instance.m_pinRootSmall.transform.rotation = Quaternion.Euler(0, 0, Player.m_localPlayer.m_eye.transform.rotation.eulerAngles.y);
+                for (int i = 0; i < __instance.m_pinRootSmall.childCount; i++)
+                {
+                    __instance.m_pinRootSmall.transform.GetChild(i).transform.rotation = Quaternion.identity;
+                } 
             }
-            orig(self, centerPoint);
         }
-        
     }
 }
