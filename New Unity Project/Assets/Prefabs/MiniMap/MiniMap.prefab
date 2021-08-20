@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -3.6595}
+  m_AnchoredPosition: {x: -6, y: -7.2}
   m_SizeDelta: {x: 344.3797, y: 345.42407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9146853190265100389
@@ -110,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.71, y: -13.56}
+  m_AnchoredPosition: {x: -32.71, y: -15.4}
   m_SizeDelta: {x: 356.29016, y: 365.2234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6363299845735742900
@@ -356,7 +356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.664, y: -42.78412}
+  m_AnchoredPosition: {x: -35, y: -34.8}
   m_SizeDelta: {x: 183, y: 21}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &3613000463632609404
@@ -387,8 +387,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 85bfd481c61005742a59166015d06696, type: 3}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: 635e2d47a8f6dad4eab8b94eca85b55b, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -651,6 +651,8 @@ GameObject:
   - component: {fileID: 2883210320865413292}
   - component: {fileID: 3496671900167329372}
   - component: {fileID: 3799163760661319504}
+  - component: {fileID: 328333721916275807}
+  - component: {fileID: 8010038727843898481}
   m_Layer: 5
   m_Name: MiniMap
   m_TagString: Untagged
@@ -677,7 +679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.13, y: -42}
+  m_AnchoredPosition: {x: -39.13, y: -139.9}
   m_SizeDelta: {x: 308.258, y: 273.88013}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &2883210320865413292
@@ -723,3 +725,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 772998909099413975}
   shouldReturn: 0
+--- !u!114 &328333721916275807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244646144219730375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 770402008347091843}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &8010038727843898481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244646144219730375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 1
