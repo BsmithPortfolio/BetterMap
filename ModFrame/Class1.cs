@@ -25,39 +25,7 @@ namespace BetterMaps
             Harmony harmony = new(ModGUID);
             harmony.PatchAll(assembly);
             LoadAssets();
-            On.Minimap.CenterMap += CenterMapHook;
         }
-
-        private void CenterMapHook(On.Minimap.orig_CenterMap orig, Minimap self, Vector3 centerpoint)
-        {
-            self.WorldToMapPoint(centerpoint, out var mx, out var my);
-            Rect uvRect = self.m_mapImageSmall.uvRect;
-            uvRect.width = self.m_smallZoom;
-            uvRect.height = self.m_smallZoom;
-            uvRect.center = new Vector2(mx, my);
-            self.m_mapImageSmall.uvRect = uvRect;
-            RectTransform rectTransform = self.m_mapImageLarge.transform as RectTransform;
-            float num = rectTransform.rect.width / rectTransform.rect.height;
-            Rect uvRect2 = self.m_mapImageSmall.uvRect;
-            uvRect2.width = self.m_largeZoom * num;
-            uvRect2.height = self.m_largeZoom;
-            uvRect2.center = new Vector2(mx, my);
-            self.m_mapImageLarge.uvRect = uvRect2;
-            if (self.m_mode == Minimap.MapMode.Large)
-            {
-                self.m_mapImageLarge.material.SetFloat("_zoom",self.m_largeZoom);
-                self.m_mapImageLarge.material.SetFloat("_pixelSize", 200f / self.m_largeZoom);
-                self.m_mapImageLarge.material.SetVector("_mapCenter", centerpoint);
-            }
-            else
-            {
-                self.m_mapImageSmall.material.SetFloat("_zoom", self.m_smallZoom);
-                self.m_mapImageSmall.material.SetFloat("_pixelSize", 200f / self.m_smallZoom);
-                self.m_mapImageSmall.material.SetVector("_mapCenter", centerpoint);
-            }
-        }
-
-
         public void LoadAssets()
         {
             mapBundle = GetAssetBundleFromResources("bettermaps");
