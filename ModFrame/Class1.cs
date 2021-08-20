@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using BepInEx;
+using BepInEx.Configuration;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,17 +15,17 @@ namespace BetterMaps
         private AssetBundle mapBundle;
         private static GameObject newMap;
         private static GameObject instantiatedMap;
-        private Camera minimapcam;
         private const string ModName = "BetterMaps";
         private const string ModVersion = "1.0";
         private const string ModGUID = "com.zarboz.BetterMaps";
-        internal static bool cameramade;
+        private static ConfigEntry<bool> MapRotation;
         public void Awake()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             Harmony harmony = new(ModGUID);
             harmony.PatchAll(assembly);
             LoadAssets();
+            MapRotation = Config.Bind("Better Maps", "Rotation", false, "Controls the map rotation with player view");
         }
         public void LoadAssets()
         {
@@ -77,6 +78,8 @@ namespace BetterMaps
         {
             public static void Postfix(Minimap __instance, Player player, Quaternion playerRot)
             {
+                if (!MapRotation.Value)
+                    return;
                 if (__instance.m_mode == Minimap.MapMode.Small)
                 {
                     __instance.m_smallMarker.rotation = Quaternion.Euler(0, 0, 0);
@@ -100,6 +103,8 @@ namespace BetterMaps
         {
             public static void Postfix(Minimap __instance)
             {
+                if (!MapRotation.Value)
+                    return;
                 __instance.m_mapImageSmall.transform.rotation = Quaternion.Euler(0, 0, Player.m_localPlayer.m_eye.transform.rotation.eulerAngles.y);
                 __instance.m_pinRootSmall.transform.rotation = Quaternion.Euler(0, 0, Player.m_localPlayer.m_eye.transform.rotation.eulerAngles.y);
                 for (int i = 0; i < __instance.m_pinRootSmall.childCount; i++)
