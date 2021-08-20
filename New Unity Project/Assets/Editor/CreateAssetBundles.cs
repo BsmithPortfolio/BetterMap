@@ -3,7 +3,7 @@ using System.IO;
 
 public class CreateAssetBundles
 {
-    [MenuItem("SkillBar/Build SkillBar AssetBundle")]
+    [MenuItem("MiniMap/Build MiniMap AssetBundle")]
     static void BuildAllAssetBundles()
     {
         string assetBundleDirectory = "AssetBundles";
