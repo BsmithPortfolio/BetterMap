@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2722972615
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: bettermaps
+      Dependencies: {}

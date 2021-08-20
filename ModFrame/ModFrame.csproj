@@ -106,22 +106,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="D:\Skills\SkillBar\SkillBarz\UnityProject\Assets\MiniMap\MonoScripts\BetterMapper.cs">
+    <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\BetterMapper.cs">
       <Link>BetterMapper.cs</Link>
     </Compile>
-    <Compile Include="D:\Skills\SkillBar\SkillBarz\UnityProject\Assets\MiniMap\MonoScripts\TestImage.cs">
+    <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\TestImage.cs">
       <Link>TestImage.cs</Link>
     </Compile>
-    <Compile Include="D:\Skills\SkillBar\SkillBarz\UnityProject\Assets\MiniMap\MonoScripts\TestMasker.cs">
+    <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\TestMasker.cs">
       <Link>TestMasker.cs</Link>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="D:\Skills\SkillBar\SkillBarz\UnityProject\AssetBundles\bettermaps">
+    <Content Include="..\New Unity Project\AssetBundles\bettermaps">
       <Link>bettermaps</Link>
-    </EmbeddedResource>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
