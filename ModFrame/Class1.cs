@@ -63,6 +63,15 @@ namespace BetterMaps
             }
 
         }
+
+        [HarmonyPatch(typeof(Minimap), nameof(Minimap.UpdateWindMarker))]
+        public static class PatchWindMarker
+        {
+            public static void Prefix(Minimap __instance)
+            {
+                __instance.m_windMarker = BetterMapper.internalWindDir;
+            }
+        }
         
         
     }
