@@ -50,6 +50,7 @@ namespace BetterMaps
             {
 	            Instantiate(newMap, __instance.transform, false);
                 //Using a prefix is imperative here due to the way that the awake function works. 
+                __instance.transform.Find("small").gameObject.SetActive(false);
                 __instance.m_smallRoot = BetterMapper.internalMapRoot; 
                 __instance.m_biomeNameSmall = BetterMapper.internalbiometext;
                 __instance.m_smallMarker = BetterMapper.internalsmallmarker;
