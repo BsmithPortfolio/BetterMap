@@ -53,9 +53,9 @@ namespace BetterMaps
                 __instance.m_smallRoot = BetterMapper.internalMapRoot; 
                 __instance.m_biomeNameSmall = BetterMapper.internalbiometext;
                 __instance.m_smallMarker = BetterMapper.internalsmallmarker;
-                BetterMapper.internalsmallmap.material = UnityEngine.Object.Instantiate(__instance.m_mapImageSmall.material);
+                BetterMapper.internalsmallmap.material = Instantiate(__instance.m_mapImageSmall.material);
                 BetterMapper.internalsmallmap.maskable = true;
-                __instance.m_mapImageSmall = BetterMapper.internalsmallmap; //this line still bothers me because the awake function pulls the material from m_small (see valheim line where it instantiates the material from the stock thing) m_mapImageSmall.material = UnityEngine.Object.Instantiate(m_mapImageSmall.material);
+                __instance.m_mapImageSmall = BetterMapper.internalsmallmap; 
                 __instance.m_smallShipMarker = BetterMapper.internalsmallship;
                 __instance.m_pinRootSmall = BetterMapper.internalpinroot;
                // __instance.m_windMarker = BetterMapper.internalWindDir;
