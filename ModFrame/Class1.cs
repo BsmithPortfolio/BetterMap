@@ -16,7 +16,7 @@ namespace BetterMaps
         private static GameObject newMap;
         private static GameObject instantiatedMap;
         private const string ModName = "BetterMaps";
-        private const string ModVersion = "1.0";
+        private const string ModVersion = "0.0.1";
         private const string ModGUID = "com.OdinPlus.BetterMaps";
         private static ConfigEntry<bool> MapRotation;
         public void Awake()
