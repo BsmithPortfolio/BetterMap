@@ -10,7 +10,7 @@ There will be much more focus on pushing this to a release candidate rather than
 
 This new visual replacement for your minimap
 
-
+There is a config option to disable rotation with player if thats not your thing 
 
 ![Gifthing](https://github.com/sbtoonz/BetterMap/raw/master/images/demogif.gif "Cool gif yo")
 
@@ -24,3 +24,9 @@ https://discord.gg/5gXNxNkUBt
 
 V0.0.1 
 Initial release.
+
+V0.0.2
+Readme Cleanup
+
+V0.0.3
+Its round ;)
