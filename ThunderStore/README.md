@@ -1,5 +1,5 @@
 
-## This is a GUI overhaul for the HUD - Stamina Forsaken Power and current food etc..
+## This is a GUI overhaul for the Minimap
 
 This is still EARLY ACCESS!! 
 
@@ -12,7 +12,7 @@ This new visual replacement for your minimap
 
 
 
-![Gifthing](https://github.com/sbtoonz/HudReplacer/raw/master/ezgif.com-gif-maker.gif "Cool gif yo")
+![Gifthing](https://github.com/sbtoonz/BetterMap/raw/master/images/demogif.gif "Cool gif yo")
 
 #KNOWN ISSUES!
 ??

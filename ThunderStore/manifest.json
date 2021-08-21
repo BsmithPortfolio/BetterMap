@@ -1,7 +1,7 @@
 ﻿{
   "name": "BeterMapper",
   "description": "a visual overhaul for your MiniMap",
-  "version_number": "0.0.1",
+  "version_number": "0.0.2",
   "website_url": "",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.1500"

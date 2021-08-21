@@ -30,7 +30,7 @@ namespace BetterMaps
         public void LoadAssets()
         {
             mapBundle = GetAssetBundleFromResources("bettermaps");
-            newMap = mapBundle.LoadAsset<GameObject>("MiniMap");
+            newMap = mapBundle.LoadAsset<GameObject>("MiniMap_Test");
         }
         private static AssetBundle GetAssetBundleFromResources(string filename)
         {
@@ -60,6 +60,8 @@ namespace BetterMaps
                 __instance.m_mapImageSmall = BetterMapper.internalsmallmap; 
                 __instance.m_smallShipMarker = BetterMapper.internalsmallship;
                 __instance.m_pinRootSmall = BetterMapper.internalpinroot;
+                BetterMapper.internalsmallmap.material.SetInt("_StencilComp", 6);
+                BetterMapper.internalsmallmap.gameObject.GetComponent<MaskableGraphic>().maskable = false;
             }
 
         }

@@ -113,6 +113,9 @@
     <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\BetterMapper.cs">
       <Link>BetterMapper.cs</Link>
     </Compile>
+    <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\CutoutMaskUI.cs">
+      <Link>CutoutMaskUI.cs</Link>
+    </Compile>
     <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\DragNDrop.cs">
       <Link>DragNDrop.cs</Link>
     </Compile>
