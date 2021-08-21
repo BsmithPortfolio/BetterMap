@@ -2,44 +2,61 @@
 using UnityEngine.EventSystems;
 public class DragNDrop : MonoBehaviour
 {
- public Transform target;
-    public bool shouldReturn;
-    private bool isMouseDown;
-    private Vector3 startMousePosition;
-    private Vector3 startPosition;
-
-    internal static bool donedrag;
-    private void Update()
+ public static void ApplyDragWindowCntrl(GameObject go)
     {
-        if (isMouseDown)
+        DragNDrop drag = go.AddComponent<DragNDrop>();
+        EventTrigger trigger = go.AddComponent<EventTrigger>();
+        EventTrigger.Entry beginDragEntry = new EventTrigger.Entry();
+        beginDragEntry.eventID = EventTriggerType.BeginDrag;
+        beginDragEntry.callback.AddListener((_) => { drag.BeginDrag(); });
+        trigger.triggers.Add(beginDragEntry);
+        EventTrigger.Entry dragEntry = new EventTrigger.Entry();
+        dragEntry.eventID = EventTriggerType.Drag;
+        dragEntry.callback.AddListener((_) => { drag.Drag(); });
+        trigger.triggers.Add(dragEntry);
+    }
+    private RectTransform window;
+    //delta drag
+    private Vector2 delta;
+    private void Awake()
+    {
+        window = (RectTransform)transform;
+    }
+    /// <summary>
+    ///     BeginDrag event trigger
+    /// </summary>
+    public void BeginDrag()
+    {
+        delta = Input.mousePosition - window.position;
+    }
+    /// <summary>
+    ///     Drag event trigger
+    /// </summary>
+    public void Drag()
+    {
+        Vector2 newPos = (Vector2)Input.mousePosition - delta;
+        Vector2 Transform = new Vector2(window.rect.width * transform.root.lossyScale.x, window.rect.height * transform.root.lossyScale.y);
+        Vector2 OffsetMin, OffsetMax;
+        OffsetMin.x = newPos.x - window.pivot.x * Transform.x;
+        OffsetMin.y = newPos.y - window.pivot.y * Transform.y;
+        OffsetMax.x = newPos.x + (1 - window.pivot.x) * Transform.x;
+        OffsetMax.y = newPos.y + (1 - window.pivot.y) * Transform.y;
+        if (OffsetMin.x < 0)
         {
-            var currentPosition = Input.mousePosition;
-
-            var diff = currentPosition - startMousePosition;
-
-            var pos = startPosition + diff;
-
-            target.position = pos;
+            newPos.x = window.pivot.x * Transform.x;
         }
-    }
-
-    public void OnPointerDown(PointerEventData dt)
-    {
-        isMouseDown = true;
-        donedrag = isMouseDown;
-        Debug.Log("Draggable Mouse Down");
-
-        startPosition = target.position;
-        startMousePosition = Input.mousePosition;
-    }
-
-    public void OnPointerUp(PointerEventData dt)
-    {
-        Debug.Log("Draggable mouse up");
-
-        isMouseDown = false;
-
-        donedrag = isMouseDown;
-        if (shouldReturn) target.position = startPosition;
+        else if (OffsetMax.x > Screen.width)
+        {
+            newPos.x = Screen.width - (1 - window.pivot.x) * Transform.x;
+        }
+        if (OffsetMin.y < 0)
+        {
+            newPos.y = window.pivot.y * Transform.y;
+        }
+        else if (OffsetMax.y > Screen.height)
+        {
+            newPos.y = Screen.height - (1 - window.pivot.y) * Transform.y;
+        }
+        window.position = newPos;
     }
 }

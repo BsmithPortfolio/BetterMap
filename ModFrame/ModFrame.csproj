@@ -125,7 +125,7 @@
     <Compile Include="..\New Unity Project\Assets\Prefabs\MiniMap\MonoScripts\TestMasker.cs">
       <Link>TestMasker.cs</Link>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BetterMaps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

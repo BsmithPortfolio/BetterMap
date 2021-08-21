@@ -228,9 +228,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300048, guid: c25312bdcd0af724894e0d625c1860b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e0acb8678521ee44ae22e545c79e880, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -273,8 +273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.7, y: -82.1}
-  m_SizeDelta: {x: 32, y: 32}
+  m_AnchoredPosition: {x: 130.2, y: -81.6}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7876663677045714314
 CanvasRenderer:
@@ -303,9 +303,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300006, guid: 922b7a2dd6d28e84d83d1f61b069b346, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e835bc9d568725b438b98b202f62741a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -482,8 +482,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 32}
+  m_AnchoredPosition: {x: -0.000017166, y: -0.29}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2623700371317865915
 CanvasRenderer:
@@ -506,13 +506,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8896552, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.355, b: 0, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300156, guid: 922b7a2dd6d28e84d83d1f61b069b346, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 159d72b4b364422489a7afb3eda7f9e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -665,8 +665,6 @@ GameObject:
   - component: {fileID: 2883210320865413292}
   - component: {fileID: 3496671900167329372}
   - component: {fileID: 3799163760661319504}
-  - component: {fileID: 328333721916275807}
-  - component: {fileID: 8010038727843898481}
   m_Layer: 5
   m_Name: MiniMap_Test
   m_TagString: Untagged
@@ -737,39 +735,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c7252268697c0459839771f959629a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 772998909099413975}
-  shouldReturn: 0
---- !u!114 &328333721916275807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8244646144219730375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 770402008347091843}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!114 &8010038727843898481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8244646144219730375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 1

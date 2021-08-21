@@ -12,7 +12,7 @@ This new visual replacement for your minimap
 
 There is a config option to disable rotation with player if thats not your thing 
 
-![Gifthing](https://github.com/sbtoonz/BetterMap/raw/master/images/demogif.gif "Cool gif yo")
+![Gifthing](https://github.com/sbtoonz/BetterMap/raw/master/images/demogif%20-%20Copy.gif "Cool gif yo")
 
 #KNOWN ISSUES!
 ??
@@ -30,3 +30,12 @@ Readme Cleanup
 
 V0.0.3
 Its round ;)
+
+V0.0.4
+Update Readme Graphics
+
+V0.0.5
+Added DragNDrop script 
+Trimmed asset bundle fat 
+Changed player marker to celtic arrow 
+
